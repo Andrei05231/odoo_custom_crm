@@ -5,7 +5,8 @@
     "category": "Human Resources",
     "description": "custom fields in CRM lead",
     "data": [
-        "views/lead_views.xml"
+        "views/lead_views.xml",
+        'security/ir.model.access.csv'
     ],
     "installable": True,
     "auto_install": False,

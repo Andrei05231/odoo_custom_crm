@@ -10,7 +10,24 @@
                     <field name="contact_ids" widget="many2many_tags" domain="[('is_company','=',True)]"/>
                     <field name="designer_ids" widget="many2many_tags" domain='[("is_company", "=", False)]'/>
                     <field name="sub_contractant_ids" widget="many2many_tags" />
+                    <field name="all_contacts_display" invisible="1"/>
                 </group>
+            </xpath>
+
+            <!-- Add new tab in the notebook -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Contact Summary" name="contact_summary">
+                    <group>
+                        <field name="all_contacts_display" nolabel="1">
+                            <list create="false" delete="false" edit="false">
+                                <field name="contact_type" string="Type"/>
+                                <field name="name" string="Name"/>
+                                <field name="email" string="Email"/>
+                                <field name="phone" string="Phone"/>
+                            </list>
+                        </field>
+                    </group>
+                </page>
             </xpath>
 
             <xpath expr="//group[@name='lead_partner']" position="attributes">
@@ -25,7 +42,6 @@
             <xpath expr="//field[@name='phone']" position="attributes">
                 <attribute name="invisible">True</attribute>
             </xpath>
-
 
         </field>
     </record>
