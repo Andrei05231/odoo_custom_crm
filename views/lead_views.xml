@@ -5,16 +5,17 @@
         <field name="inherit_id" ref="crm.crm_lead_view_form"/>
         <field name="arch" type="xml">
 
-            <xpath expr="//group[@name='lead_partner']" position="replace">
-                <group name="lead_partner">
+            <xpath expr="//group[@name='lead_partner']" position="before">
+                <group name="contact_info">
                     <field name="contact_ids" widget="many2many_tags" domain="[('is_company','=',True)]"/>
                     <field name="designer_ids" widget="many2many_tags" domain='[("is_company", "=", False)]'/>
                     <field name="sub_contractant_ids" widget="many2many_tags" />
-                    <field name="partner_id" invisible="1"/>
                 </group>
             </xpath>
 
-
+            <xpath expr="//group[@name='lead_partner']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
             <xpath expr="//group[@name='opportunity_partner']" position="attributes">
                 <attribute name="invisible">True</attribute>
             </xpath>
