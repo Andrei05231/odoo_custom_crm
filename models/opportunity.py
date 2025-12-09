@@ -10,9 +10,27 @@ class CrmLead(models.Model):
 
     contact_ids = fields.Many2many(
         'res.partner',
-        'crm_lead_partner_rel',
+        'crm_lead_contact_rel',   
         'lead_id',
         'partner_id',
         string='Contractant',
         domain=[('is_company', '=', True)]
     )
+
+    designer_ids = fields.Many2many(
+        'res.partner',
+        'crm_lead_designer_rel',  
+        'lead_id',
+        'partner_id',
+        string='Proiectant General',
+        domain=[('is_company', '=', False)]
+    )
+
+    sub_contractant_ids = fields.Many2many(
+        'res.partner',
+        'crm_lead_subcontractant_rel',  
+        'lead_id',
+        'partner_id',
+        string='Subcontractanti',
+    )
+
