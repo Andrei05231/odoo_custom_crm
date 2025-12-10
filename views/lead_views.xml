@@ -7,10 +7,14 @@
 
             <xpath expr="//group[@name='lead_partner']" position="before">
                 <group name="contact_info">
-                    <field name="contact_ids" widget="many2many_tags" domain="[('is_company','=',True)]"/>
-                    <field name="designer_ids" widget="many2many_tags" domain='[("is_company", "=", False)]'/>
-                    <field name="sub_contractant_ids" widget="many2many_tags" />
-                    <field name="all_contacts_display" invisible="1"/>
+                    <field name="contact_ids" 
+                        widget="many2many_tags_avatar" 
+                        domain="[('is_company','=',True)]"/>
+                    <field name="designer_ids" 
+                        widget="many2many_tags_avatar" 
+                        domain='[("is_company", "=", False)]'/>
+                    <field name="sub_contractant_ids" 
+                        widget="many2many_tags_avatar"/>
                 </group>
             </xpath>
 
